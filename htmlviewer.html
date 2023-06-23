@@ -1,0 +1,1468 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <meta name="csrf-token" content="YNHaMosRNmHYi6eTn6ZTWJvtN5Z8sNnce7c48eTA" />
+
+    <title>Govt NID Download System</title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="https://onlineseba.xyz/assets/css/app.min.css">
+    <link rel="stylesheet" href="https://onlineseba.xyz/assets/bundles/datatables/datatables.min.css">
+    <link rel="stylesheet"
+        href="https://onlineseba.xyz/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://onlineseba.xyz/assets/bundles/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="https://onlineseba.xyz/assets/bundles/summernote/summernote-bs4.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="https://onlineseba.xyz/assets/css/style.css">
+    <link rel="stylesheet" href="https://onlineseba.xyz/assets/css/components.css">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="https://onlineseba.xyz/assets/css/custom.css">
+    <!--<link rel='shortcut icon' type='image/x-icon' href="https://onlineseba.xyz/assets/img/favicon.icon" />-->
+    <link rel="icon" type="image/x-icon" href="https://onlineseba.xyz/assets/img/logo-ec.png">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    
+    
+    <style>
+        /* .dropdown-menu {
+    margin: 0.125rem -105px 0;
+} */
+        .main-sidebar {
+            box-shadow: 0 4px 25px 0rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            height: 100%;
+            width: 250px;
+            /* background-color: #fff; */
+            z-index: 880;
+            left: 0;
+            background-image: linear-gradient(#032559, #032559);
+        }
+
+        ul.sidebar-menu li a {
+            color: #fff !important;
+        }
+
+        ul.sidebar-menu li a {
+            color: #fff !important;
+        }
+
+        .modal-confirm {
+            color: #636363;
+            width: 400px;
+        }
+
+        .modal-confirm .modal-content {
+            padding: 20px;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .modal-confirm .modal-header {
+            border-bottom: none;
+            position: relative;
+        }
+
+        .modal-confirm h4 {
+            text-align: center;
+            font-size: 26px;
+            margin: 30px 0 -10px;
+        }
+
+        .modal-confirm .close {
+            position: absolute;
+            top: -5px;
+            right: -2px;
+        }
+
+        .modal-confirm .modal-body {
+            color: #999;
+        }
+
+        .modal-confirm .modal-footer {
+            border: none;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 13px;
+            padding: 10px 15px 25px;
+        }
+
+        .modal-confirm .modal-footer a {
+            color: #999;
+        }
+
+        .modal-confirm .icon-box {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            border-radius: 50%;
+            z-index: 9;
+            text-align: center;
+            border: 3px solid #f15e5e;
+        }
+
+        .modal-confirm .icon-box i {
+            color: #f15e5e;
+            font-size: 46px;
+            display: inline-block;
+            margin-top: 13px;
+        }
+
+        .modal-confirm .btn,
+        .modal-confirm .btn:active {
+            color: #fff;
+            border-radius: 4px;
+            background: #60c7c1;
+            text-decoration: none;
+            transition: all 0.4s;
+            line-height: normal;
+            min-width: 120px;
+            border: none;
+            min-height: 40px;
+            border-radius: 3px;
+            margin: 0 5px;
+        }
+
+        .modal-confirm .btn-secondary {
+            background: #c1c1c1;
+        }
+
+        .modal-confirm .btn-secondary:hover,
+        .modal-confirm .btn-secondary:focus {
+            background: #a8a8a8;
+        }
+
+        .modal-confirm .btn-danger {
+            background: #f15e5e;
+        }
+
+        .modal-confirm .btn-danger:hover,
+        .modal-confirm .btn-danger:focus {
+            background: #ee3535;
+        }
+
+
+
+        .bottomTabMehidi .containerm {
+            position: fixed;
+                z-index: 1;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            background: #fff;
+            padding: 10px 0;
+        }
+
+        // End Codepen spesific styling
+
+
+        .bottomTabMehidi .menum {
+            display: flex;
+            flex-grow: 1;
+            height: 72px;
+            max-width: 370px;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 0 1px 0 rgba(#342ead, 0.25), 0 15px 30px 0 rgba(#342ead, 0.1);
+        }
+
+        .bottomTabMehidi .menu-itemm {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            text-decoration: none;
+
+            &:focus,
+            &:hover {
+                outline: none;
+
+                .material-icons {
+                    font-family: "Material Icons";
+                    color: #342ead;
+                }
+
+                .menu-item-labelm {
+                    color: #342ead;
+                }
+            }
+        }
+
+        .bottomTabMehidi .material-icons {
+            font-family: "Material Icons Outlined";
+            display: block;
+            margin-bottom: 4px;
+            font-size: 26px;
+            color: mix(#fff, #342ead, 60%);
+            transition: 0.25s ease;
+        }
+
+        .bottomTabMehidi .menu-item-labelm {
+            display: block;
+            font-size: 13px;
+            color: mix(#fff, #342ead, 70%);
+            transition: 0.25s ease;
+        }
+
+        media only screen and (max-width: 768px) {
+
+            /* For mobile phones: */
+            .modal-confirm .modal-content {
+                width: 340px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.2.3/css/fileinput.min.css">
+
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');
+
+        button:focus,
+        input:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        /*----------multiple-file-upload-----------*/
+        .file-upload-contain {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .file-upload-contain .file-input,
+        .file-upload-contain .file-preview {
+            position: initial;
+        }
+
+        .file-upload-contain .file-drop-zone {
+            border: 2px dashed #1e80e8;
+            transition: 0.3s;
+            margin: 0;
+            padding: 0;
+            border-radius: 20px;
+            background-color: #f1f8fe;
+            min-height: auto;
+        }
+
+        .file-upload-contain .file-drop-zone.clickable:hover,
+        .file-upload-contain .file-drop-zone.clickable:focus,
+        .file-upload-contain .file-highlighted {
+            border: 2px dashed #1e80e8 !important;
+            background-color: #dfedfc;
+        }
+
+        .upload-area i {
+            color: #1e80e8;
+            font-size: 50px;
+        }
+
+        .upload-area p {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2580e8;
+        }
+
+        .upload-area p b {
+            color: #1e80e8;
+        }
+
+        .upload-area button {
+            padding: 8px 16px;
+            min-width: 150px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            background-color: #1e80e8;
+            border: 2px solid #1e80e8;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .upload-area button:hover {
+            background-color: #1e80e8;
+            box-shadow: 0px 4px 8px rgb(37 128 232 / 48%);
+        }
+
+        .file-preview {
+            padding: 0;
+            border: none;
+            margin-bottom: 30px;
+        }
+
+        .file-preview .fileinput-remove {
+            display: none;
+        }
+
+        .file-drop-zone-title {
+            padding: 20px 10px;
+        }
+
+        .file-drop-zone .file-preview-thumbnails {
+            cursor: pointer;
+        }
+
+        .file-preview-frame {
+            cursor: default;
+            display: flex;
+            align-items: center;
+            border: none;
+            background-color: #2580e8;
+            box-shadow: none;
+            border-radius: 8px;
+            width: 100%;
+            padding: 15px;
+            margin: 8px 0px;
+        }
+
+        .file-preview-frame:not(.file-preview-error):hover {
+            border: none;
+            box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%);
+        }
+
+        .file-preview-frame .kv-file-content {
+            min-width: 45px;
+            min-height: 45px;
+            width: 45px;
+            height: 45px;
+            border-radius: 4px;
+            margin-right: 10px;
+            background-color: #fff;
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .file-preview-image {
+            border-radius: 4px;
+        }
+
+        .file-preview-frame .file-footer-caption {
+            padding-top: 0;
+        }
+
+        .file-preview-frame .file-footer-caption {
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        .file-detail {
+            font-size: 14px;
+            height: auto;
+            width: 100%;
+            line-height: initial;
+        }
+
+        .file-detail .file-caption-name {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .file-detail .file-size {
+            color: #f1f8fe;
+            font-size: 12px;
+        }
+
+        .kv-zoom-cache {
+            display: none;
+        }
+
+        .file-preview-frame .file-thumbnail-footer {
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .file-preview-frame .file-drag-handle,
+        .file-preview-frame .file-upload-indicator {
+            float: none;
+        }
+
+        .file-preview-frame .file-footer-buttons {
+            float: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .file-preview-status.text-center {
+            display: none;
+        }
+
+        .kv-file-remove.file-remove {
+            border: none;
+            background-color: #ef2f2f;
+            color: #fff;
+            width: 25px;
+            height: 25px;
+            font-size: 12px;
+            border-radius: 4px;
+            margin: 0px 4px;
+        }
+
+        .file-drag-handle.file-drag {
+            border: none;
+            background-color: #fff;
+            color: #2580e8;
+            width: 25px;
+            height: 25px;
+            font-size: 12px;
+            border-radius: 4px;
+            margin: 0px 4px;
+            display: none;
+        }
+
+        .kv-file-upload.file-upload {
+            border: none;
+            background-color: #48bd22;
+            color: #fff;
+            width: 25px;
+            height: 25px;
+            font-size: 12px;
+            border-radius: 4px;
+            margin: 0px 4px;
+        }
+
+        .file-thumb-loading {
+            background: none !important;
+        }
+
+        .file-preview-frame.sortable-chosen {
+            background-color: #64a5ef;
+            border-color: #64a5ef;
+            box-shadow: none !important;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        input[type="radio"][id^="cb"] {
+  display: none;
+}
+
+.paymentselctlabel {
+  border: 1px solid #fff;
+  padding: 10px;
+  display: block;
+  position: relative;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.paymentselctlabel:before {
+  background-color: white;
+  color: white;
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  border: 1px solid grey;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 28px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+.paymentselctlabel img {
+  height: 60px;
+  width: 100px;
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+.paymentselctlabel p{
+  margin: 0;
+}
+
+:checked + .paymentselctlabel {
+  border-color: #ddd;
+}
+
+:checked + .paymentselctlabel:before {
+  content: "✓";
+  background-color: grey;
+  transform: scale(1);
+}
+
+:checked + .paymentselctlabel img {
+  transform: scale(0.9);
+  box-shadow: 0 0 5px #333;
+  z-index: -1;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="loader"></div>
+    <span id="bKash_button"></span>
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            <div class="navbar-bg"></div>
+            <nav class="navbar navbar-expand-lg main-navbar sticky" style="left:0; background: transparent;">
+
+    <div class="form-inline mr-auto d-none d-md-block">
+      <ul class="navbar-nav mr-3">
+        <li id="mynavbar_mehidi" style="background: #333;
+    border-radius: 10px;">
+          <a  data-toggle='sidebar' id="sidebar_mehidi" class="nav-link nav-link-lg collapse-btn imgremove">
+            <i data-feather="menu" style="color:#fff"></i>
+  
+          </a>
+  
+        </li>
+        <span class="ddym"></span>
+      </ul>
+    </div>
+        <div style="display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #000;">
+      <p style="margin:0px;    margin: 0px;
+      font-size: 18px;
+      margin-right: 15px;
+      color: #000;
+      font-weight: bold;" id="userSiteAmount">1.00 ৳</p>
+      
+      <a href="/user/recharge" class="btn btn-sm" style="background-color:#032559;color:#fff;padding: 9px 18px;">Add Amount</a>
+      
+       
+
+    
+    </div>
+    <!-- <ul class="navbar-nav navbar-right">
+      <li class="dropdown"><a href="#" data-toggle="dropdown"
+          class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="https://onlineseba.xyz/assets/img/user.png"
+            class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
+        <div class="dropdown-menu dropdown-menu-right pullDown">
+          <div class="dropdown-title">Hello Admin</div>
+          <div class="dropdown-divider"></div>
+          <a href="" class="dropdown-item has-icon text-danger"><span class="acCSS"> Logout</span><i class="fas fa-sign-out-alt"></i>
+  
+          </a>
+        </div>
+      </li>
+    </ul> -->
+    <div class="nav-item dropdown">
+                  <a href="#"  id="openLogout" data-toggle="dropdown" class="nav-link dropdown-toggle user-action" aria-expanded="true" style="color:#000">MD RAKIB UDDIN</a>
+                  <div class="dropdown-menu" id="showLogout" style="left: -129px;
+    width: 300px;">
+                      <!--
+                      <a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a>
+  
+                      <div class="dropdown-divider"></div> -->
+                      <p class="dropdown-item has-icon"><span class="acCSS"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="30554853555c4840535f5d70575d51595c1e535f5d">[email&#160;protected]</a></span></i></p>
+                    <a href="https://onlineseba.xyz/user/logout" class="dropdown-item has-icon text-danger"><span class="acCSS"> Logout</span><i class="fas fa-sign-out-alt"></i>
+  
+          </a>
+                  </div>
+              </div>
+  </nav>
+  
+  
+<div style="    position: fixed;
+    top: 37px;
+    z-index: 99;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background: #cdeafe;
+    padding: 12px 0;">
+<section class="callaction " style="border-bottom: 0px solid #fc32c6;">
+    <div class="" style="width:100%;">
+      <div class="">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12  pl-0 pr-0 ">
+          <div>
+            <div>
+                
+              <div class="abc">
+                <div class="list-group" style="margin:0;">
+                  <marquee direction="left" style=" color:#1a43f1;" class="mrq" scrolldelay="90" scrollamount="3" behavior="scroll" loop="0" onmouseover="this.stop()" onmouseout="this.start()">
+                    <p class="scrool-msg" style="margin: 2px;"><strong><b>এনআইডি মেইক একাউন্টে ২৪ ঘন্টার ভিতরে রিচাজ না করলে, আমরা আপনার একাউন্ট ডিলেট করে দিব।</strong> </p>
+                  </marquee>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>            <div class="main-sidebar sidebar-gone1 sidebar-style-2">
+    <aside id="sidebar-wrapper">
+      <div class="sidebar-brand">
+        <!-- <br> -->
+        <img src="https://onlineseba.xyz/assets/img/logo-ec.png" class="header-logo" style="width:50%"/>
+        <!--<h4 class="logo-name">্ষা</h4>-->
+        <br>
+        <br>
+      </div>
+      <style>
+        /* hr {
+          margin-top: 0px;
+          margin-bottom: 1rem;
+          border: 0;
+          border-top: 1px solid #0000001a;
+        } */
+        .main-sidebar .sidebar-menu li a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 12px !important;
+    width: 100%;
+    letter-spacing: 0.3px;
+    color: #60686f;
+    font-weight: 600;
+    text-decoration: none;
+}
+      </style>
+      <!-- <div class="sidebar-user">
+              <div class="sidebar-user-picture">
+                <img alt="image" src="assets/img/user.png">
+              </div> -->
+      <!-- <div class="sidebar-user-details">
+                <div class="user-name">Olivia Thomas</div>
+                <div class="user-role">Administrator</div>
+                <div class="sidebar-userpic-btn">
+                  <a href="profile.html" data-toggle="tooltip" title="Profile">
+                    <i data-feather="user"></i>
+                  </a>
+                  <a href="email_inbox.html" data-toggle="tooltip" title="Mail">
+                    <i data-feather="mail"></i>
+                  </a>
+                  <a href="chat.html" data-toggle="tooltip" title="Chat">
+                    <i data-feather="message-square"></i>
+                  </a>
+                  <a href="login.html" data-toggle="tooltip" title="Log Out">
+                    <i data-feather="log-out"></i>
+                  </a>
+                </div>
+              </div>
+            </div> -->
+      <ul class="sidebar-menu">
+        <li class="dropdown" >
+          <a href="https://onlineseba.xyz/user/create/file/submission" class="nav-link"><i class="fas fa-chart-pie"></i><span >এনআইডি কার্ড তৈরী করুন</span></a>
+        </li>
+        <li class="dropdown" >
+            <a href="https://onlineseba.xyz/user/file/submission/list" class="nav-link"><i class="fas fa-list"></i><span >এনআইডি ডাউনলোড লিস্ট</span></a>
+        </li>
+        <li class="dropdown" >
+            <a href="/user/refer-and-earn" class="nav-link"><i class="fas fa-coins"></i><span >Refer & Earn</span></a>
+        </li>
+
+                        <br>
+      </ul>
+    </aside>
+  </div>            <!-- Main Content -->
+            <div class="main-content" style="padding-left:30px">
+                <div class="container">
+     <span style="display:none" id="apiToken">15300|aA2pjeDwiOUGXZiMSV61ZLz95EU0yIR1irGdaDzH</span>
+        
+    
+
+    <section class="bg-diffrent">
+        <div class="container">
+            <form id="submitalldatafornid">
+                <input type="hidden" name="_token" value="YNHaMosRNmHYi6eTn6ZTWJvtN5Z8sNnce7c48eTA">                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <div class="file-upload-contain">
+                            <input id="multiplefileupload" type="file" name="file" accept=".pdf" />
+                        </div>
+                    </div>
+                    
+                </div>
+                <div id="formdata" style=" display:none ">
+                    <h3 style="text-align: center">NID Info</h3>
+                   
+                    <div class="row">
+                        <div class="col-md-6" style="display: flex;
+                        align-items: center;">
+                            <div class="form-group">
+                                <label for="first" style="display: block">NID Photo</label>
+                                <input style="width: 230px;" type="file" placeholder="" id="imageUrl1" name="imageUrl1">
+                            </div>
+                            <img style="width: 55px;" id="imageUrl1_url"
+                                src="" />
+                        </div>
+                        <!--  col-md-6   -->
+
+                        <div class="col-md-6" style="    display: flex;
+                        align-items: center;">
+                            <div class="form-group">
+                                <label for="last" style="display: block">Signature</label>
+                                <input style="width: 230px;" type="file" placeholder="" id="imageUrl2" name="imageUrl2">
+                            </div>
+                            <img style="width: 55px;" id="imageUrl2_url"
+                                src="" />
+                        </div>
+                        <!--  col-md-6   -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="first">Name (Bangla)</label>
+                                <input type="text" name="nameBangla" class="form-control" placeholder="Name (Bangla)"
+                                    id="nameBangla" value="">
+                            </div>
+                        </div>
+                        <!--  col-md-6   -->
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="last">Name (English)</label>
+                                <input type="text" name="nameEnglish" class="form-control"
+                                    placeholder="Name (English)" id="nameEnglish" value="">
+                            </div>
+                        </div>
+                        <!--  col-md-6   -->
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="company">NID Number</label>
+                                <input type="text" class="form-control" placeholder="NID Number" id="nid"
+                                    name="nid" value="">
+                            </div>
+
+
+                        </div>
+                        <!--  col-md-6   -->
+
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="phone">PIN Number</label>
+                                <input type="text" class="form-control" name="pin" id="pin"
+                                    placeholder="PIN Number" value="">
+                            </div>
+                        </div>
+                        <!--  col-md-6   -->
+                    </div>
+                    <!--  row   -->
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="email">Father Name</label>
+                                <input type="text" class="form-control" id="nameFather" name="nameFather"
+                                    placeholder="Father Name" value="">
+                            </div>
+                        </div>
+                        <!--  col-md-6   -->
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="url">Mother Name</label>
+                                <input type="text" class="form-control" name="nameMother" id="nameMother"
+                                    placeholder="Mother Name" value="">
+                            </div>
+
+                        </div>
+                        <!--  col-md-6   -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <div class="form-group">
+                                <label for="email">Birth Place</label>
+                                <input type="text" class="form-control" id="birthPlace" name="birthPlace"
+                                    placeholder="Birth Place" value="">
+                            </div>
+                        </div>
+                        <!--  col-md-6   -->
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="url">Date Of Birth</label>
+                                <input type="text" class="form-control" id="dob" name="dob"
+                                    placeholder="Date Of Birth" value="">
+                            </div>
+
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="url">Blood Group</label>
+                                <input type="text" class="form-control" id="bloodGroup" name="bloodGroup"
+                                    placeholder="Blood Group" >
+                            </div>
+
+                        </div>
+                        <!--  col-md-6   -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label for="email">Full Address</label>
+                                <textarea class="form-control" id="fulladdress" name="fulladdress" placeholder="Full Address" rows="2"></textarea>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--  row   -->
+
+
+
+
+                    <div style="display: flex;justify-content: center;
+                    margin-bottom: 50px;">
+                        <!--<a  data-toggle="modal" id="downloadpdf" class="btn btn-primary">Save & Download NID</a>-->
+                        <button type="submit" class="btn btn-primary"  id="niddownloadsubmit">Save & Download NID</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Modal -->
+    
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-confirm">
+          <div class="modal-content">
+            <div class="modal-header flex-column">
+              <div style=" width:100%;   display: flex;
+justify-content: center;
+">
+<img src="https://onlineseba.xyz/assets/img/logo-ec.png" style="width: 100px;" />
+</div>						
+              
+                      <button type="button" class="close coloseModal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p style="font-size: 16px;
+              color: #333;">NID টি ডাউনলোড করার জন্য আপনার একাউন্ট থেকে 12 টাকা কেটে নেওয়া হবে।</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-secondary coloseModal">No</button>
+
+              <button onclick="downloadPdfSave(1,1)" class="btn btn-danger">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+    
+</div>
+
+                </div>
+
+
+            <div id="addAmount" class="modal fade">
+                <div class="modal-dialog modal-confirm">
+                    <div class="modal-content">
+                        <form id="addAmountSubmit" method="post">
+                            <input type="hidden" name="_token" value="YNHaMosRNmHYi6eTn6ZTWJvtN5Z8sNnce7c48eTA">                            <div class="row" style="    justify-content: center;
+                            align-items: center;
+                            gap: 15px;">
+                                <div class="pt-3" style="width: 300px;">
+                                    <label for="amount" id="uddokpayAmountL">সর্বনিম্ন রিচার্জ</label>
+                                    <input type="number" required class="form-control" id="uddokpayAmount"
+                                        name="amount" placeholder="Enter Amount" value="">
+                                </div>
+                                <div style="    display: flex;
+                                justify-content: center;
+                                align-items: center;">
+                                    <div>
+                                        <input type="radio" name="paymentselctname" id="cb1" checked />
+                                        <label class="paymentselctlabel" for="cb1"><img src="https://onlineseba.xyz/assets/img/bkash_payment_logo.png" />
+                                        <p>Bkash online Auto payment</p>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="paymentselctname" id="cb2" />
+                                        <label class="paymentselctlabel" for="cb2"><img src="https://onlineseba.xyz/assets/img/manualpaymentimg.jpg" />
+                                        <p>Nagad+Rocket+Upay+Cellfin Auto payment</p>
+                                        </label>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="userId" name="userId" value="">
+                            </div>
+
+                            <div class="modal-footer justify-content-center">
+
+
+
+                                
+                                <button type="submit" id="amountSubmitButton" class="btn"
+                                    style="background-color: #032559;color:#fff">সাবমিট</button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="loadMe" tabindex="-1" role="dialog" aria-labelledby="loadMeLabel">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body text-center"
+                            style="    height: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;">
+                            <div class="spinner-border" role="status">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            
+
+            <div class="bottomTabMehidi  d-sm-block d-md-none d-lg-none d-xl-none">
+                <div class="containerm">
+                    <!-- code here -->
+                    <div class="menum" style="display: flex;">
+                        <a href="https://onlineseba.xyz/user/create/file/submission" class="menu-itemm">
+                            <span class="material-icons">list</span>
+
+                            <span class="menu-item-labelm">ক্রিয়েট ফাইল</span>
+                        </a>
+                        <a href="https://onlineseba.xyz/user/file/submission/list" class="menu-itemm">
+                            <span class="material-icons">list</span>
+                            <span class="menu-item-labelm">ফাইল লিস্ট</span>
+                        </a>
+                        
+                        <a href="/user/refer-and-earn" class="menu-itemm">
+                            <span class="material-icons">monetization_on</span>
+                            <span class="menu-item-labelm">Refer & Earn</span>
+                        </a>
+                        
+             
+
+                        
+                        <!--<a href="https://tawk.to/chat/6318f79b37898912e967d63a/1gcd7l7j7" target="_blank" class="menu-itemm">-->
+
+                        <a href="https://wa.me/8801783524530?text=Hello" target="_blank" class="menu-itemm">
+                            <span class="material-icons">chat</span>
+                            <span class="menu-item-labelm">লাইভ চ্যাট</span>
+                        </a>
+                    </div>
+                    <!-- end of code -->
+                </div>
+            </div>
+
+            <footer class="main-footer">
+    <div class="footer-left">
+      কপিরাইট &copy; ২০২৩<div class="bullet"></div> এনআইডি কার্ড ডাউনলোডার <a ref="#"></a>   
+      
+      <br>
+      <b>
+     <a>
+    <section class="callaction " style="border-bottom: 0px solid #ec002e;">
+     </b>
+     </a>
+      
+    </div>
+    <div class="footer-right">
+    </div>
+  </footer>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        var finalEnlishToBanglaNumber = {
+            0: "০",
+            1: "১",
+            2: "২",
+            3: "৩",
+            4: "৪",
+            5: "৫",
+            6: "৬",
+            7: "৭",
+            8: "৮",
+            9: "৯",
+        };
+
+        String.prototype.getDigitBanglaFromEnglish = function() {
+            var retStr = this;
+            for (var x in finalEnlishToBanglaNumber) {
+                retStr = retStr.replace(new RegExp(x, "g"), finalEnlishToBanglaNumber[x]);
+            }
+            return retStr;
+        };
+    </script>
+
+    <!-- General JS Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.2.3/js/plugins/sortable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.2.3/themes/fas/theme.min.js"></script>
+
+
+    
+    
+    <script src="https://onlineseba.xyz/assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <script>
+        window.vps_server_domain = "allservices.click";
+    </script>
+    
+    <script src="https://onlineseba.xyz/assets/bundles/datatables/datatables.min.js"></script>
+    <script src="https://onlineseba.xyz/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://onlineseba.xyz/assets/bundles/summernote/summernote-bs4.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="https://onlineseba.xyz/assets/js/page/datatables.js"></script>
+    <script src="https://onlineseba.xyz/assets/js/page/fileuploader.js"></script>
+    <!-- Custom JS File -->
+    <script src="https://onlineseba.xyz/assets/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script src="https://onlineseba.xyz/customjs/jquery-ui.js"></script>
+    <!-- Template JS File -->
+    <script src="https://onlineseba.xyz/assets/js/scripts.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+
+    <script>
+        console.log("hello mehidi1");
+        $("#mynavbar_mehidi").click(function() {
+            console.log("clided");
+            var body = $(".main-sidebar"),
+                w = $(window);
+
+            // if (w.outerWidth() <= 1024) {
+            body.removeClass("search-show search-gone");
+            if (body.hasClass("sidebar-gone1")) {
+                body.removeClass("sidebar-gone1");
+                body.addClass("sidebar-show1");
+                $("#sidebar_mehidi").html(
+                    `
+<svg style="color:#fff;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+                );
+
+                w = $(window);
+
+                if (w.outerWidth() > 600) {
+                    $('.main-content').css({
+                        paddingLeft: '250px'
+                    })
+
+                }
+
+            } else {
+                body.addClass("sidebar-gone1");
+                body.removeClass("sidebar-show1");
+                $("#sidebar_mehidi").html(
+                    `<svg style="color:#fff;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`
+                );
+                $('.main-content').css({
+                    paddingLeft: '35px'
+                })
+            }
+
+            //  update_sidebar_nicescroll();
+            // } else {
+            //   body.removeClass("search-show search-gone");
+            //   if (body.hasClass("sidebar-mini")) {
+            //     toggle_sidebar_mini(false);
+            //   } else {
+            //     toggle_sidebar_mini(true);
+            //   }
+            // }
+
+            return false;
+        });
+        $(document).ready(function() {
+            console.log("hello mehidi");
+            // jQuery methods go here...
+
+        });
+    </script>
+
+
+
+
+
+
+
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js" -->
+           <!-- integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>-->
+
+
+    <script>
+        const requird_amount = 100;
+        const quickpaymentlist = [100,200,300,400,500];
+
+
+        $('#uddokpayAmount').val(requird_amount)
+        $('#uddokpayAmountL').text('সর্বনিম্ন রিচার্জ ' + requird_amount + 'Tk');
+
+        async function payWithUddokta() {
+
+            // Prevent the default form submission event from happening.
+
+
+            const values = {
+                full_name: "MD RAKIB UDDIN",
+                email: "excelxpcom@gmail.com",
+                amount: Number($('#uddokpayAmount').val()),
+                metadata: {
+                    id: "2667"
+                },
+                redirect_url: "https://cardsdownload.com/payment/success.php?link=" +
+                    location.hostname,
+                cancel_url: "https://cardsdownload.com/payment/cancel.php?link=" + location
+                    .hostname,
+                webhook_url: "https://cardsdownload.com/payment/webhook.php?link=" +
+                    location.hostname
+
+            }
+
+            $("#amountSubmitButton").html(`<div class="spinner-border" role="status">
+  <span class="sr-only">Loading...</span>
+</div>`);
+
+            var res = await fetch(`https://pay.cardsdownload.com/api/checkout-v2`, {
+                method: 'POST',
+                body: JSON.stringify(values),
+                headers: {
+
+                    'RT-UDDOKTAPAY-API-KEY': "450642f35e6c274e95507d86052a7d233bad273c",
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            var data = await res.json();
+
+
+            $("#amountSubmitButton").html(`সাবমিট`);
+
+
+            if (data.status == true) {
+                window.location.href = data.payment_url;
+
+            } else {
+                swal("Something is wrong try again!")
+            }
+            console.log(data)
+
+        }
+
+
+        async function payWithBkash() {
+
+            $(function() {
+                // Change script url when it's live
+                var scriptLink = 'https://scripts.pay.bka.sh/versions/1.2.0-beta/checkout/bKash-checkout.js';
+
+                $("#amountSubmitButton").html(`<div class="spinner-border" role="status">
+  <span class="sr-only">Loading...</span>
+</div>`);
+
+                function errorMessage(response) {
+                    let msg = '';
+                    if (!response.errorMessageEn) {
+                        msg += 'Payment failed';
+                    } else {
+                        let errorMessage = 'Sorry, your payment was unsuccessful !!! ';
+                        let errorCode = response.externalCode;
+                        let bkashErrorCode = [2001, 2002, 2003, 2004, 2007, 2008, 2009, 2011, 2012, 2013, 2020,
+                            2021, 2022, 2025, 2027, 2028, 2030, 2031, 2032, 2033, 2036, 2037, 2038, 2040,
+                            2041, 2042,
+                            2043, 2044, 2045, 2046, 2047, 2048, 2049, 2050, 2051, 2052, 2053, 2054, 2055,
+                            2056
+                        ];
+
+                        if (bkashErrorCode.includes(errorCode)) {
+                            errorMessage = 'Payment failed';
+                        } else if (errorCode == 2029) {
+                            errorMessage =
+                                'Sorry, your payment was unsuccessful !!! For same amount transaction, please try again after 10 minutes.';
+                        }
+
+                        msg += errorMessage;
+                    }
+                    return msg;
+                }
+
+                $.getScript(scriptLink)
+                    .done(function(script) {
+                        //finished loading the script
+
+                        var paymentID = null;
+                        var bkashPaymentRequest = {
+                            intent: "sale",
+                            basePath: "abdul-khalek-mobile-recharge-s",
+                            urlFragment: "paymentlink",
+                            trxType: "AMOUNT",
+                            amount: Number($('#uddokpayAmount').val()),
+                            price: Number($('#uddokpayAmount').val()),
+                            userId: "2667",
+                            packageName: "Customer Provided Amount",
+                            quantity: 0,
+                            customerName: "",
+                            customerPhoneNumber: "",
+                            customerEmail: "",
+                            customerReference: "",
+                            customerAddress: "",
+                            customerMembershipId: "",
+                            customerBillMonth: "",
+                            useWalletAsContact: true
+                        };
+
+                        //call the bkash init function
+                        bKash.init({
+                            paymentMode: 'checkout',
+                            paymentRequest: bkashPaymentRequest,
+                            createRequest: function(request) {
+                                // write your logic
+                                $.ajax({
+                                    url: "https://cpp.bka.sh/customer-portal-middleware/create-payment",
+                                    type: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    data: JSON.stringify(request),
+                                    success: function(response) {
+                                        $("#amountSubmitButton").html(`সাবমিট`)
+                                        data = response;
+                                        if (data && data.paymentID != null) {
+                                            paymentID = data.transactionId;
+                                            bKash.create().onSuccess(data);
+                                        } else {
+                                            bKash.create().onError();
+                                            swal("Invalid Payment Id",
+                                                "Sorry, your payment was unsuccessful !!!",
+                                                "warning");
+
+                                        }
+                                    },
+                                    error: function(xhr, textStatus, errorThrown) {
+                                        $("#amountSubmitButton").html(`সাবমিট`);
+                                        bKash.create().onError();
+                                        swal("Invalid Request",
+                                            "Sorry, your payment was unsuccessful !!!",
+                                            "error");
+
+                                    }
+                                });
+
+                            },
+                            executeRequestOnAuthorization: function() {
+                                $.ajax({
+                                    url: "https://cpp.bka.sh/customer-portal-middleware/execute-payment",
+                                    type: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    data: JSON.stringify({
+                                        transactionId: paymentID
+                                    }),
+                                    success: async function(response) {
+                                        $("#amountSubmitButton").html(`সাবমিট`)
+                                        data = response;
+                                        if (data && data.paymentId != null) {
+                                            await fetch(
+                                                "https://onlineseba.xyz/user/bkash/execute-payment", {
+                                                    headers: {
+                                                        "Content-Type": "application/json",
+                                                        "X-CSRF-Token": "YNHaMosRNmHYi6eTn6ZTWJvtN5Z8sNnce7c48eTA"
+                                                    },
+                                                    method: "post",
+                                                    body: JSON.stringify({
+                                                        amount: bkashPaymentRequest
+                                                            .amount,
+                                                    })
+                                                });
+                                            paymentID = null;
+                                            swal("Payment successful",
+                                                "Payment successfully completed",
+                                                "success");
+
+                                            location.reload();
+                                        } else {
+                                            bKash.execute().onError();
+                                            swal(data.errorMessageEn, errorMessage(
+                                                data), "error");
+
+                                        }
+                                    },
+                                    error: function(xhr) {
+                                        $("#amountSubmitButton").html(`সাবমিট`);
+                                        data = xhr.responseJSON;
+                                        bKash.execute().onError();
+                                        swal(data.errorMessageEn, errorMessage(
+                                            data), "error");
+                                    }
+                                });
+
+                            },
+                            onClose: function() {
+                                $("#amountSubmitButton").html(`সাবমিট`);
+                                swal("Please try again", "Sorry, your payment was unsuccessful",
+                                    "warning")
+
+                            }
+                        });
+
+                        $('#bKash_button').click();
+
+                    });
+                // window.location.replace(window.location.href);
+            });
+        }
+
+        async function onSubmit(event) {
+            event.preventDefault();
+
+
+            if ($('#uddokpayAmount').val() < requird_amount) {
+
+                swal('সর্বনিম্ন রিচার্জ ' + requird_amount + 'Tk')
+
+            } else {
+              if(event.target.paymentselctname[0].checked){
+                payWithBkash()
+              }else{
+                payWithUddokta()
+              }
+            }
+
+
+        }
+
+
+
+        $('#addAmountSubmit').on('submit', onSubmit);
+
+
+        // async function testfunctpayme() {
+        //     await fetch(
+        //                                         "https://onlineseba.xyz/user/bkash/execute-payment", {
+        //                                             headers: {
+        //                                                 "Content-Type": "application/json",
+        //                                                 "X-CSRF-Token": "YNHaMosRNmHYi6eTn6ZTWJvtN5Z8sNnce7c48eTA"
+        //                                             },
+        //                                             method: "post",
+        //                                             body: JSON.stringify({
+        //                                                 amount: 145,
+        //                                             })
+        //                                         });
+        // }
+        // testfunctpayme();
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+        integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+            <script type="text/javascript">
+            if ($(window).width() > 720) {
+
+
+                //   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+                // (function(){
+                // var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                // s1.async=true;
+                // s1.src='https://embed.tawk.to/6318f79b37898912e967d63a/1gcd7l7j7';
+                // s1.charset='UTF-8';
+                // s1.setAttribute('crossorigin','*');
+                // s0.parentNode.insertBefore(s1,s0);
+                // })(); 
+
+
+                var url = 'https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?24615';
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = url;
+                var options = {
+                    "enabled": true,
+                    "chatButtonSetting": {
+                        "backgroundColor": "#4dc247",
+                        "ctaText": "",
+                        "borderRadius": "17",
+                        "marginLeft": "1",
+                        "marginBottom": "5",
+                        "marginRight": "2",
+                        "position": "right"
+                    },
+                    "brandSetting": {
+                        "brandName": "Support Team",
+                        "brandSubTitle": "ADMIN PANEL CONTRACT",
+                        "brandImg": "",
+                        "welcomeText": " ",
+                        "messageText": "Hello, I need Software",
+                        "backgroundColor": "#0a5f54",
+                        "ctaText": "Click Here",
+                        "borderRadius": "30",
+                        "autoShow": false,
+                        "phoneNumber": "8801783524530"
+                    }
+                };
+                s.onload = function() {
+                    CreateWhatsappChatWidget(options);
+                };
+                var x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(s, x);
+
+
+
+            }
+        </script>
+    
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>
